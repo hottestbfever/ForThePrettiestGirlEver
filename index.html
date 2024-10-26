@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorenzo's Ghostface Escape Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            text-align: center;
+        }
+        #notification {
+            margin: 20px 0;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+        #notification.show {
+            opacity: 1;
+        }
+        button {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        button:hover {
+            background-color: #ff9999;
+        }
+        #game-container {
+            margin-top: 20px;
+        }
+        #timer {
+            font-size: 1.5rem;
+            color: #ff9999;
+        }
+        h2 {
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorenzo's Ghostface Escape Room</h1>
+    <div id="intro">
+        <h2>Welcome to the Escape Room!</h2>
+        <p>Test your knowledge of horror movies and see if you can help your beautiful boy Lorenzo escape the clutches of Ghostface's lies! You have 3 attempts per question, and time is ticking! Good luck my Princess!</p>
+        <button id="start-button">Start Game</button>
+    </div>
+    <div id="game-container" style="display: none;">
+        <div id="notification"></div>
+        <div id="timer"></div>
+        <div id="question-container">
+            <h2 id="question"></h2>
+            <div id="answers">
+                <button class="answer"></button>
+                <button class="answer"></button>
+                <button class="answer"></button>
+                <button class="answer"></button>
+            </div>
+        </div>
+        <p id="question-counter"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

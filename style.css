@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Creepster', cursive, sans-serif; /* Fallback */
+}
+
+body {
+  background-image: url('https://cdn.prod.website-files.com/634d73016da598049a82ddab/650e7d83a3681ef90447ff6b_16944356-e124-4d92-bc04-a92fb4c33348-0.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: -1; /* Behind content */
+}
+
+#game-container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  text-align: center;
+  position: relative; /* For absolute positioning of elements */
+}
+
+.dripping-title {
+  font-size: 3.5rem;
+  color: #ff3333;
+  text-shadow: 0 0 10px #000;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  animation: drip 0.1s infinite alternate;
+}
+
+@keyframes drip {
+  0% {
+    text-shadow: 0 0 10px #000, 0 0 15px #ff3333, 0 0 20px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 10px #000, 0 0 15px #ff0000, 0 0 25px #ff0000;
+    transform: translateY(2px); /* Create a dripping effect */
+  }
+}
+
+#intro {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.answer-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer {
+  display: block;
+  margin: 10px 0;
+  padding: 15px;
+  width: 80%;
+  background: #444;
+  border: 2px solid #ff3333;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.answer:hover {
+  background: #ff3333;
+  transform: translateY(-3px);
+}
+
+.answer:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px #ff3333; /* Custom focus effect */
+}
+
+#notification {
+  display: none;
+  background: rgba(255, 51, 51, 0.9);
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  animation: slideIn 0.5s forwards, fadeInOut 3s forwards; /* Sliding and fading */
+}
+
+.notification.show {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+#question-counter {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ff9999;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted white;
+  color: #ff3333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px; /* Increased width */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px; /* Added padding */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -110px; /* Centered */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Notification animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
